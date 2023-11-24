@@ -29,8 +29,9 @@
   width: 150px;
   cursor: pointer;
   position: absolute;
-  animation: fade 2s ease-in-out infinite;
   bottom: 1rem;
+  background-color: #fdfdfd;
+  box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.2);
 }
 
 

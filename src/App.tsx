@@ -88,7 +88,7 @@ const App: Component = () => {
           <h3>20:30</h3>
           <img class={styles.QR} src={QR} alt="link" />
         </div>
-        <div>
+        <div style={{ padding: '15px' }}>
           {!data() ? (
             <div>
               <h3>
