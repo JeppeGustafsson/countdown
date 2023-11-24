@@ -1,0 +1,112 @@
+.App {
+  text-align: center;
+}
+
+.header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.Logo {
+  position: absolute;
+  width: 200px;
+  top: 1rem;
+  left: 1rem;
+}
+
+.Button {
+  margin: 1rem 0;
+  padding: 0 1rem;
+  border-radius: 20px;
+  outline: none;
+  border: none;
+  width: 150px;
+  cursor: pointer;
+  position: absolute;
+  animation: fade 2s ease-in-out infinite;
+  bottom: 1rem;
+}
+
+
+.Section {
+  width: 100%;
+  height: 90vh;
+  background-color: #282c34;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.List {
+  height: 200px;
+  overflow: scroll;
+  text-align: left;
+}
+
+.Item {
+  background-color: whitesmoke;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  font-size: 0.7rem;
+  margin: 0.3rem 0;
+}
+
+.TextBlock {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.QR {
+  width: 150px;
+  margin-top: 1rem;
+  align-self: center;
+}
+
+.SubmitButton {
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  outline: none;
+  border: none;
+  width: 100px;
+  cursor: pointer;
+  margin-left: 1rem;
+}
+
+.Input {
+  width: 160px;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  border: 1px solid #fdfdfd4c;
+  background-color: transparent;
+  margin: 0.5rem 0;
+  transition: 0.5s ease;
+  outline: none;
+  color: #fdfdfd;
+}
+
+.Input:focus {
+  border: 1px solid #fdfdfd;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0.8;
+  }
+}
