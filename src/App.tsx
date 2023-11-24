@@ -34,9 +34,7 @@ const App: Component = () => {
   };
 
   const getToken = async () => {
-    const token = await fetch(
-      'https://imminent-little-iron.glitch.me/token'
-    )
+    const token = await fetch('https://get-token.onrender.com')
       .then((res) => res.json())
       .then((data) => data?.access_token);
     return token;
