@@ -85,7 +85,7 @@ const App: Component = () => {
       <section class={styles.Section}>
         <div class={styles.TextBlock}>
           <h3>Lisebergs Hamnkrog</h3>
-          <h3>19:00</h3>
+          <h3>20:30</h3>
           <img class={styles.QR} src={QR} alt="link" />
         </div>
         <div>
