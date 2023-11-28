@@ -66,7 +66,7 @@ const App: Component = () => {
     <div class={styles.App}>
       <img class={styles.Logo} src={Logo} alt="squeed_logo" />
       <header class={styles.header}>
-        <h2>Nedräkning till julbord</h2>
+        <h2 class={styles.titleh2}>Nedräkning till julbord</h2>
         <Countdown />
         <div class={styles.flex}>
           <div class={styles.widget}>
