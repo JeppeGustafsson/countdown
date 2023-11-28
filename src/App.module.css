@@ -13,10 +13,6 @@
   color: white;
 }
 
-.titleh2 {
-  margin-top: 2.5rem;
-}
-
 .Logo {
   position: absolute;
   width: 200px;
@@ -38,6 +34,9 @@
   }
   .flex {
     margin-top: 0;
+  }
+  .titleh2 {
+    margin-top: 4.5rem;
   }
 }
 
