@@ -20,6 +20,23 @@
   left: 1rem;
 }
 
+.widget {
+  padding: 15px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+  margin: 15px;
+}
+
+@media screen and (max-width: 650px) {
+  .widget {
+    width: 100%;
+  }
+  .flex {
+    margin-top: 0;
+  }
+}
+
 .Button {
   margin: 1rem 0;
   padding: 0 1rem;
@@ -34,17 +51,6 @@
   box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.2);
 }
 
-
-.Section {
-  width: 100%;
-  height: 90vh;
-  background-color: #282c34;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
 .List {
   height: 200px;
   overflow: scroll;
@@ -52,11 +58,20 @@
 }
 
 .Item {
-  background-color: whitesmoke;
+  background-color: rgb(36, 132, 188);
   padding: 0.5rem 1rem;
   border-radius: 10px;
   font-size: 0.7rem;
   margin: 0.3rem 0;
+  color: white;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 6rem;
 }
 
 .TextBlock {
@@ -82,32 +97,22 @@
   width: 100px;
   cursor: pointer;
   margin-left: 1rem;
+  background-color: rgb(36, 132, 188);
+  color: white;
 }
 
 .Input {
   width: 160px;
   padding: 0.5rem 1rem;
   border-radius: 20px;
-  border: 1px solid #fdfdfd4c;
+  border: 1px solid #6a6a6a;
   background-color: transparent;
   margin: 0.5rem 0;
   transition: 0.5s ease;
   outline: none;
-  color: #fdfdfd;
+  color: #2b2b2b;
 }
 
 .Input:focus {
-  border: 1px solid #fdfdfd;
-}
-
-@keyframes fade {
-  0% {
-    opacity: 0.8;
-  }
-  50% {
-    opacity: 0.5;
-  }
-  100% {
-    opacity: 0.8;
-  }
+  border: 1px solid rgb(36, 132, 188);
 }

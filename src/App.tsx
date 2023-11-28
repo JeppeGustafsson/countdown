@@ -19,7 +19,6 @@ type LatLon = {
 };
 
 const App: Component = () => {
-  const [isDown, setIsDown] = createSignal(false);
   const [inputData, setInputData] = createSignal('');
   const [data, setData] = createSignal(null);
   const [latLon, setLatLon] = createSignal<LatLon | null>(null);
@@ -69,101 +68,85 @@ const App: Component = () => {
       <header class={styles.header}>
         <h2>Nedräkning till julbord</h2>
         <Countdown />
-        <button
-          class={styles.Button}
-          onClick={() => {
-            window.scrollTo({
-              behavior: 'smooth',
-              top: isDown() ? -1200 : 1200,
-            });
-            setIsDown(!isDown());
-          }}
-        >
-          {isDown() ? <p>Back</p> : <p>Info</p>}
-        </button>
-      </header>
-      <section class={styles.Section}>
-        <div class={styles.TextBlock}>
-          <h3>Lisebergs Hamnkrog</h3>
-          <h3>20:30</h3>
-          <img class={styles.QR} src={QR} alt="link" />
-        </div>
-        <div style={{ padding: '15px' }}>
-          {!data() ? (
-            <div>
-              <h3>
-                I'm not as think as you drunk I am.
-                <br />
-                But I can't find my way home...
-              </h3>
-            </div>
-          ) : (
-            <div class={styles.List}>
-              <For each={data()}>
-                {(item) => {
-                  const name =
-                    item?.tripLegs &&
-                    item?.tripLegs[0]?.serviceJourney?.line?.name;
-                  const depDate =
-                    item?.departureAccessLink?.destination
-                      ?.estimatedTime;
-                  const arrDate =
-                    item?.arrivalAccessLink?.destination
-                      ?.estimatedTime;
-                  const dep =
-                    depDate &&
-                    `${
-                      new Date(depDate).getHours() +
-                      ':' +
-                      new Date(depDate).getMinutes()
-                    }`;
-                  const arr =
-                    arrDate &&
-                    `${
-                      new Date(arrDate).getHours() +
-                      ':' +
-                      new Date(arrDate).getMinutes()
-                    }`;
-                  if (!dep) {
-                    return null;
-                  }
-                  return (
-                    <div class={styles.Item}>
-                      <p>
-                        {
-                          item?.departureAccessLink?.destination
-                            ?.stopPoint?.name
-                        }{' '}
-                        -{' '}
-                        {
-                          item?.arrivalAccessLink?.origin?.stopPoint
-                            ?.name
-                        }
-                      </p>
-                      <p>{name}</p>
-                      <p>Avgång: {dep}</p>
-                      <p>Ankomst: {arr}</p>
-                    </div>
-                  );
-                }}
-              </For>
-            </div>
-          )}
-          <input
-            class={styles.Input}
-            type="text"
-            placeholder="Hemadress"
-            onChange={(e) => setInputData(e.target.value)}
-          />
-          <button class={styles.SubmitButton} onClick={getData}>
-            {loading() ? (
-              <span>Loading...</span>
+        <div class={styles.flex}>
+          <div class={styles.widget}>
+            <h3>Lisebergs Hamnkrog</h3>
+            <h3>20:30</h3>
+            <img class={styles.QR} src={QR} alt="link" />
+          </div>
+          <div class={styles.widget}>
+            {!data() ? (
+              <div>
+                <h3>Jag vill hem</h3>
+              </div>
             ) : (
-              <span>Submit</span>
+              <div class={styles.List}>
+                <For each={data()}>
+                  {(item) => {
+                    const name =
+                      item?.tripLegs &&
+                      item?.tripLegs[0]?.serviceJourney?.line?.name;
+                    const depDate =
+                      item?.departureAccessLink?.destination
+                        ?.estimatedTime;
+                    const arrDate =
+                      item?.arrivalAccessLink?.destination
+                        ?.estimatedTime;
+                    const dep =
+                      depDate &&
+                      `${
+                        new Date(depDate).getHours() +
+                        ':' +
+                        new Date(depDate).getMinutes()
+                      }`;
+                    const arr =
+                      arrDate &&
+                      `${
+                        new Date(arrDate).getHours() +
+                        ':' +
+                        new Date(arrDate).getMinutes()
+                      }`;
+                    if (!dep) {
+                      return null;
+                    }
+                    return (
+                      <div class={styles.Item}>
+                        <p>
+                          {
+                            item?.departureAccessLink?.destination
+                              ?.stopPoint?.name
+                          }{' '}
+                          -{' '}
+                          {
+                            item?.arrivalAccessLink?.origin?.stopPoint
+                              ?.name
+                          }
+                        </p>
+                        <p>{name}</p>
+                        <p>Avgång: {dep}</p>
+                        <p>Ankomst: {arr}</p>
+                      </div>
+                    );
+                  }}
+                </For>
+              </div>
             )}
-          </button>
+            <input
+              class={styles.Input}
+              type="text"
+              placeholder="Hemadress"
+              onChange={(e) => setInputData(e.target.value)}
+            />
+            <button class={styles.SubmitButton} onClick={getData}>
+              {loading() ? (
+                <span>Loading...</span>
+              ) : (
+                <span>Submit</span>
+              )}
+            </button>
+          </div>
         </div>
-      </section>
+      </header>
       <canvas
         style={{ 'pointer-events': 'none' }}
         id="canvas"

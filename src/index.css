@@ -12,6 +12,11 @@ code {
     monospace;
 }
 
+h1 {
+  font-weight: 300;
+  margin: 0;
+}
+
 h2 {
   font-weight: 300;
   font-size: 1.8rem;
@@ -23,7 +28,7 @@ h3 {
   font-weight: 300;
   font-size: 1.4rem;
   padding-bottom: 0.5rem;
-  color: white;
+  color: #2b2b2b;
   line-height: 1;
   margin: 0;
 }
