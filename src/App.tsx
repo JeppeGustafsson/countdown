@@ -17,7 +17,7 @@ type LatLon = {
   lat: number;
   lon: number;
 };
-
+// Main app component
 const App: Component = () => {
   const [inputData, setInputData] = createSignal('');
   const [data, setData] = createSignal(null);
